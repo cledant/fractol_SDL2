@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Tools">
+      <UniqueIdentifier>{53acaddc-d421-47e9-9b13-dd522d70b88e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System">
+      <UniqueIdentifier>{802b29fa-6c2a-4aa6-a2b2-ba943e9980c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Event">
+      <UniqueIdentifier>{214cfb8b-19cb-4aee-aa9d-6a2c264f9148}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Draw">
+      <UniqueIdentifier>{a5b43f44-5629-4456-bf64-0eb1a4127e1a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_burningship.c">
+      <Filter>Source Files\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_calc_bs.c">
+      <Filter>Source Files\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_calc_mb.c">
+      <Filter>Source Files\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_create_texture_name.c">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_change_color.c">
+      <Filter>Source Files\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_change_fractal.c">
+      <Filter>Source Files\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_change_iter.c">
+      <Filter>Source Files\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_color_pixel.c">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_julia.c">
+      <Filter>Source Files\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_julia_burningship.c">
+      <Filter>Source Files\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_error.c">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_main_loop.c">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_mandelbrot.c">
+      <Filter>Source Files\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_mouse_position.c">
+      <Filter>Source Files\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_move_camera.c">
+      <Filter>Source Files\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_offset_value.c">
+      <Filter>Source Files\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_pitch_value.c">
+      <Filter>Source Files\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_set_rect.c">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_zoom_out.c">
+      <Filter>Source Files\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_zoom_in.c">
+      <Filter>Source Files\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_set_mouse_tracking.c">
+      <Filter>Source Files\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_seek_offset.c">
+      <Filter>Source Files\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_resize_window.c">
+      <Filter>Source Files\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_reset_view.c">
+      <Filter>Source Files\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_sdl_exit.c">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_set_sdl_color.c">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_init_texture.c">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_destroy_texture.c">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_create_renderer_image.c">
+      <Filter>Source Files\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_draw_fractal.c">
+      <Filter>Source Files\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="fractol_update_iter_zoom.c">
+      <Filter>Source Files\Draw</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="fract_ol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

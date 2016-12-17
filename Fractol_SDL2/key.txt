@@ -1,0 +1,11 @@
+/* Fractol Keys *\
+
+TAB = Change fractal
+ESC = Quit
+ARROWS = Move
+MOUSE WHEEL = Zoom in or Zoom out
+M = Disable or enable mouse
+R = Reset view
+I = Increase iteration
+U = Decrease iteration
+C = Change color
