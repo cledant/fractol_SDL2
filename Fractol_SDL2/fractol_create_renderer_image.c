@@ -16,25 +16,25 @@ static t_err	name_copy(t_env *e)
 {
 	t_err	err = NONE;
 
-	if (e->fractal_nb == MANDELBROT)
+	if (e->var.fractal_nb == MANDELBROT)
 	{
 		if (SDL_RenderCopy(e->renderer, e->mandel_name.tex, &(e->mandel_name.rect_s),
 				&(e->mandel_name.rect_d)) == -1)
 			return (E_COPY_RENDERER);
 	}
-	else if (e->fractal_nb == JULIA)
+	else if (e->var.fractal_nb == JULIA)
 	{
 		if (SDL_RenderCopy(e->renderer, e->julia_name.tex, &(e->julia_name.rect_s),
 				&(e->julia_name.rect_d)) == -1)
 			return (E_COPY_RENDERER);
 	}
-	else if (e->fractal_nb == BURNING_SHIP)
+	else if (e->var.fractal_nb == BURNING_SHIP)
 	{
 		if (SDL_RenderCopy(e->renderer, e->bs_name.tex, &(e->bs_name.rect_s),
 				&(e->bs_name.rect_d)) == -1)
 			return (E_COPY_RENDERER);
 	}
-	else if (e->fractal_nb == JULIA_BURNING_SHIP)
+	else if (e->var.fractal_nb == JULIA_BURNING_SHIP)
 	{
 		if (SDL_RenderCopy(e->renderer, e->julia_bs_name.tex, &(e->julia_bs_name.rect_s),
 				&(e->julia_bs_name.rect_d)) == -1)

@@ -12,7 +12,8 @@
 
 #include "fract_ol.h"
 
-double			fractol_pitch_value(double min, double max, size_t size)
+double			fractol_pitch_value(const double min, const double max,
+					const int size)
 {
 	double		range;
 

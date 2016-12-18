@@ -38,9 +38,10 @@ void			fractol_main_loop(t_env *e)
 			else if (e->ev.type == SDL_WINDOWEVENT)
 			{
 				if (e->ev.window.event == SDL_WINDOWEVENT_RESIZED)
-					if (fractol_resize_window(e) != 1)
+					if ((err = fractol_resize_window(&(e->var), e->win,
+						&(e->fractal), &(e->ev))) != NONE)
 					{
-						fractol_exit(e, &run, E_SURFACE);
+						fractol_exit(e, &run, err);
 						break;
 					}
 			}
@@ -52,40 +53,40 @@ void			fractol_main_loop(t_env *e)
 					break;
 				}
 				else if (e->ev.key.keysym.sym == SDLK_r)
-					fractol_reset_view(e);
+					fractol_reset_view(&(e->var));
 				else if (e->ev.key.keysym.sym == SDLK_c)
-					fractol_change_color(e);
+					fractol_change_color(&(e->var));
 				else if (e->ev.key.keysym.sym == SDLK_TAB)
-					fractol_change_fractal(e);
+					fractol_change_fractal(&(e->var));
 				else if (e->ev.key.keysym.sym == SDLK_KP_PLUS)
-					fractol_zoom_in(e);
+					fractol_zoom_in(&(e->var));
 				else if (e->ev.key.keysym.sym == SDLK_KP_MINUS)
-					fractol_zoom_out(e);
+					fractol_zoom_out(&(e->var));
 				else if (e->ev.key.keysym.sym == SDLK_i)
-					fractol_change_iter(e, 1);
+					fractol_change_iter(&(e->var), 1);
 				else if (e->ev.key.keysym.sym == SDLK_u)
-					fractol_change_iter(e, 0);
+					fractol_change_iter(&(e->var), 0);
 				else if (e->ev.key.keysym.sym == SDLK_UP)
-					fractol_move_camera(e, 0);
+					fractol_move_camera(&(e->var), 0);
 				else if (e->ev.key.keysym.sym == SDLK_DOWN)
-					fractol_move_camera(e, 1);
+					fractol_move_camera(&(e->var), 1);
 				else if (e->ev.key.keysym.sym == SDLK_RIGHT)
-					fractol_move_camera(e, 2);
+					fractol_move_camera(&(e->var), 2);
 				else if (e->ev.key.keysym.sym == SDLK_LEFT)
-					fractol_move_camera(e, 3);
+					fractol_move_camera(&(e->var), 3);
 				else if (e->ev.key.keysym.sym == SDLK_m)
-					fractol_set_mouse_tracking(e);
+					fractol_set_mouse_tracking(&(e->var));
 			}
-			else if (e->ev.type == SDL_MOUSEMOTION && e->mouse_tracking == 1)
-				fractol_mouse_position(e);
+			else if (e->ev.type == SDL_MOUSEMOTION && e->var.mouse_tracking == 1)
+				fractol_mouse_position(&(e->var));
 			else if (e->ev.type == SDL_MOUSEWHEEL)
 			{
 				if (e->ev.wheel.y < 0)
-					fractol_zoom_out(e);
+					fractol_zoom_out(&(e->var));
 				else
-					fractol_zoom_in(e);
+					fractol_zoom_in(&(e->var));
 			}
-			if (e->render == 1)
+			if (e->var.render == 1)
 				if ((err = fractol_draw_fractal(e)) != NONE)
 				{
 					fractol_exit(e, &run, err);

@@ -12,27 +12,27 @@
 
 #include "fract_ol.h"
 
-void			fractol_zoom_out(t_env *e)
+void			fractol_zoom_out(t_var *v)
 {
-	if (e->zoom != 1)
+	if (v->zoom != 1)
 	{
-		e->offset_width = fractol_seek_offset(e->win_width, e->m_width);
-		e->offset_height = fractol_seek_offset(e->win_height, e->m_height);
-		e->width_min = fractol_offset_value(e->width_min, e->offset_width, e->width_pitch);
-		e->width_max = fractol_offset_value(e->width_max, e->offset_width, e->width_pitch);
-		e->height_min = fractol_offset_value(e->height_min, -e->offset_height, e->height_pitch);
-		e->height_max = fractol_offset_value(e->height_max, -e->offset_height, e->height_pitch);
-		e->width_min = e->width_min - (4 / (e->zoom + e->zoom));
-		e->width_max = e->width_max + (4 / (e->zoom + e->zoom));
-		e->height_min = e->height_min - (4 / (e->zoom + e->zoom));
-		e->height_max = e->height_max + (4 / (e->zoom + e->zoom));
-		e->zoom = e->zoom / 2;
-		e->width_pitch = fractol_pitch_value(e->width_min, e->width_max, e->win_width);
-		e->height_pitch = fractol_pitch_value(e->height_min, e->height_max, e->win_height);
-		e->width_min = e->width_min - (e->offset_width * e->width_pitch);
-		e->width_max = e->width_max - (e->offset_width * e->width_pitch);
-		e->height_min = e->height_min - (-e->offset_height * e->height_pitch);
-		e->height_max = e->height_max - (-e->offset_height * e->height_pitch);
-		e->render = 1;
+		v->offset_width = v->m_width - (v->win_width / 2);
+		v->offset_height = v->m_height - (v->win_height / 2);
+		v->width_min = v->width_min + (v->width_pitch * v->offset_width);
+		v->width_max = v->width_max + (v->width_pitch * v->offset_width);
+		v->height_min = v->height_min + (v->height_pitch * -v->offset_height);
+		v->height_max = v->height_max + (v->height_pitch * -v->offset_height);
+		v->width_min = v->width_min - (4 / (v->zoom + v->zoom));
+		v->width_max = v->width_max + (4 / (v->zoom + v->zoom));
+		v->height_min = v->height_min - (4 / (v->zoom + v->zoom));
+		v->height_max = v->height_max + (4 / (v->zoom + v->zoom));
+		v->zoom = v->zoom / 2;
+		v->width_pitch = fractol_pitch_value(v->width_min, v->width_max, v->win_width);
+		v->height_pitch = fractol_pitch_value(v->height_min, v->height_max, v->win_height);
+		v->width_min = v->width_min - (v->offset_width * v->width_pitch);
+		v->width_max = v->width_max - (v->offset_width * v->width_pitch);
+		v->height_min = v->height_min - (-v->offset_height * v->height_pitch);
+		v->height_max = v->height_max - (-v->offset_height * v->height_pitch);
+		v->render = 1;
 	}
 }

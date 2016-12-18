@@ -48,6 +48,31 @@ typedef struct      s_texture
 	SDL_Rect		rect_d;
 }					t_texture;
 
+typedef struct		s_var
+{
+	char			render;
+	char			s[2048];
+	size_t			iter;
+	int				win_width;
+	int				win_height;
+	int				m_width;
+	int				m_height;
+	int				m_width_old;
+	int				m_height_old;
+	int				offset_width;
+	int				offset_height;
+	double			width_min;
+	double			width_max;
+	double			height_min;
+	double			height_max;
+	double			width_pitch;
+	double			height_pitch;
+	double			zoom;
+	char			color;
+	char			fractal_nb;
+	char			mouse_tracking;
+}					t_var;
+
 typedef struct		s_env
 {
 	/*SYSTEM*/
@@ -71,61 +96,41 @@ typedef struct		s_env
 	SDL_Color		c_black;
 	SDL_Color		c_transparent;
 	/*VARIABLES*/
-	char			render;
-	char			s[2048];
-	size_t			iter;
-	size_t			win_width;
-	size_t			win_height;
-	int				m_width;
-	int				m_height;
-	int				m_width_old;
-	int				m_height_old;
-	int				offset_width;
-	int				offset_height;
-	double			width_min;
-	double			width_max;
-	double			height_min;
-	double			height_max;
-	double			width_pitch;
-	double			height_pitch;
-	double			zoom;
-	char			color;
-	char			fractal_nb;
-	char			mouse_tracking;
+	t_var			var;
 }					t_env;
 
 /*SYSTEM*/
 void			fractol_main_loop(t_env *e);
 void			fractol_sdl_exit(t_env *e);
-void			fractol_error(t_env *e, t_err err);
+void			fractol_error(t_env *e, const t_err err);
 /*TOOLS*/
-t_err			fractol_create_texture_name(t_texture *t, const SDL_Renderer *renderer,
-					const TTF_Font *font, const int pos_width, const int pos_height,
+t_err			fractol_create_texture_name(t_texture *t, SDL_Renderer *renderer,
+					TTF_Font *font, const int pos_width, const int pos_height,
 					const SDL_Color color, const char *s);
 void			fractol_init_texture(t_texture *t);
 void			fractol_destroy_texture(t_texture *t);
 void			fractol_set_rect(SDL_Rect *rect, const int pos_width,
 					const int pos_height, const int width, const int height);
 void			fractol_color_pixel(t_texture *t, const char color,
-					const size_t win_width, const int i, const int j,
+					const int win_width, const int i, const int j,
 					const size_t cur_it);
 void			fractol_set_sdl_color(SDL_Color *color, const unsigned char r,
 					const unsigned char g, const unsigned char b,
 					const unsigned char a);
 /*EVENT*/
-void			fractol_reset_view(t_env *e);
-void			fractol_zoom_in(t_env *e);
-void			fractol_zoom_out(t_env *e);
-void			fractol_change_color(t_env *e);
-void			fractol_change_iter(t_env *e, size_t type);
-void			fractol_move_camera(t_env *e, size_t type);
-void			fractol_set_mouse_tracking(t_env *e);
-void			fractol_change_fractal(t_env *e);
-void			fractol_mouse_position(t_env *e);
-char			fractol_resize_window(t_env *e);
-int				fractol_seek_offset(int size, int pos);
-double			fractol_offset_value(double value, int offset, double pitch);
-double			fractol_pitch_value(double min, double max, size_t size);
+void			fractol_reset_view(t_var *v);
+void			fractol_zoom_in(t_var *v);
+void			fractol_zoom_out(t_var *v);
+void			fractol_change_color(t_var *v);
+void			fractol_change_iter(t_var *v, char type);
+void			fractol_move_camera(t_var *v, char type);
+void			fractol_set_mouse_tracking(t_var *v);
+void			fractol_change_fractal(t_var *v);
+void			fractol_mouse_position(t_var *v);
+t_err			fractol_resize_window(t_var *v, SDL_Window *win, t_texture *fractal,
+					const SDL_Event *ev);
+double			fractol_pitch_value(const double min, const double max,
+					const int size);
 /*DRAW*/
 t_err			fractol_draw_fractal(t_env *e);
 t_err			fractol_create_renderer_image(t_env *e);
@@ -134,7 +139,7 @@ void			fractol_mandelbrot(t_env *e);
 void			fractol_julia(t_env *e);
 void			fractol_burningship(t_env *e);
 void			fractol_julia_burningship(t_env *e);
-int				fractol_calc_mb(double *init_x, double *init_y, double x, double y);
-int				fractol_calc_bs(double *init_x, double *init_y, double x, double y);
+char			fractol_calc_mb(double *init_x, double *init_y, double x, double y);
+char			fractol_calc_bs(double *init_x, double *init_y, double x, double y);
 
 #endif

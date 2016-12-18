@@ -12,10 +12,10 @@
 
 #include "fract_ol.h"
 
-void	fractol_change_fractal(t_env *e)
+void	fractol_change_fractal(t_var *v)
 {
-	(e->fractal_nb)++;
-	if (e->fractal_nb > 3)
-		e->fractal_nb = 0;
-	e->render = 1;
+	(v->fractal_nb)++;
+	if (v->fractal_nb > 3)
+		v->fractal_nb = 0;
+	v->render = 1;
 }

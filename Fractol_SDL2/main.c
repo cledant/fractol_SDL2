@@ -21,20 +21,20 @@ static void		init_pointer(t_env *e)
 
 static t_err		init_env(t_env *e)
 {
-	e->win_width = 500;
-	e->win_height = 500;
-	e->fractal_nb = 0;
-	fractol_reset_view(e);
+	e->var.win_width = 500;
+	e->var.win_height = 500;
+	e->var.fractal_nb = 0;
+	fractol_reset_view(&(e->var));
 	if ((e->win = SDL_CreateWindow("Fractol", SDL_WINDOWPOS_UNDEFINED,
-			SDL_WINDOWPOS_UNDEFINED, e->win_width, e->win_height,
+			SDL_WINDOWPOS_UNDEFINED, e->var.win_width, e->var.win_height,
 			SDL_WINDOW_RESIZABLE)) == NULL)
 		return (E_WINDOW);
 	if ((e->renderer = SDL_CreateRenderer(e->win, -1, SDL_RENDERER_ACCELERATED))
 			== NULL)
 		return (E_RENDERER);
-	fractol_set_rect(&(e->fractal.rect_s), 0, 0, e->win_width, e->win_height);
-	fractol_set_rect(&(e->fractal.rect_d), 0, 0, e->win_width, e->win_height);
-	if ((e->fractal.surf = SDL_CreateRGBSurface(0, e->win_width, e->win_height,
+	fractol_set_rect(&(e->fractal.rect_s), 0, 0, e->var.win_width, e->var.win_height);
+	fractol_set_rect(&(e->fractal.rect_d), 0, 0, e->var.win_width, e->var.win_height);
+	if ((e->fractal.surf = SDL_CreateRGBSurface(0, e->var.win_width, e->var.win_height,
 			32, 0, 0, 0, 0)) == NULL)
 		return (E_SURFACE);
 	return (NONE);

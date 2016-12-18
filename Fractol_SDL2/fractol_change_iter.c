@@ -12,21 +12,21 @@
 
 #include "fract_ol.h"
 
-void	fractol_change_iter(t_env *e, size_t type)
+void	fractol_change_iter(t_var *v, char type)
 {
 	if (type == 0)
 	{
-		if (e->iter == 0)
+		if (v->iter == 0)
 			return ;
 		else
-			e->iter = e->iter - 10;
+			v->iter = v->iter - 10;
 	}
 	else if (type == 1)
 	{
-		if (e->iter == 200000)
+		if (v->iter == 200000)
 			return ;
 		else
-			e->iter = e->iter + 10;
+			v->iter = v->iter + 10;
 	}
-	e->render = 1;
+	v->render = 1;
 }

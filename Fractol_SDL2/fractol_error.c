@@ -12,7 +12,7 @@
 
 #include "fract_ol.h"
 
-void	fractol_error(t_env *e, t_err err)
+void	fractol_error(t_env *e, const t_err err)
 {
 	if (err == E_SURFACE)
 		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Error",

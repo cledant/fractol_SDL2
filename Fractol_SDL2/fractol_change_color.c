@@ -12,11 +12,11 @@
 
 #include "fract_ol.h"
 
-void	fractol_change_color(t_env *e)
+void	fractol_change_color(t_var *v)
 {
-	if (e->color == 6)
-		e->color = 1;
+	if (v->color == 6)
+		v->color = 1;
 	else
-		(e->color)++;
-	e->render = 1;
+		(v->color)++;
+	v->render = 1;
 }

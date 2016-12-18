@@ -151,9 +151,7 @@
     <ClCompile Include="fractol_update_iter_zoom.c" />
     <ClCompile Include="fractol_zoom_in.c" />
     <ClCompile Include="fractol_zoom_out.c" />
-    <ClCompile Include="fractol_offset_value.c" />
     <ClCompile Include="fractol_pitch_value.c" />
-    <ClCompile Include="fractol_seek_offset.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <ItemGroup>

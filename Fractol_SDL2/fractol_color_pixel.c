@@ -13,7 +13,7 @@
 #include "fract_ol.h"
 
 void	fractol_color_pixel(t_texture *t, const char color,
-			const size_t win_width, const int i, const int j,
+			const int win_width, const int i, const int j,
 			const size_t cur_it)
 {
 	unsigned int *img = t->surf->pixels;

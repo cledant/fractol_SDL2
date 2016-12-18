@@ -75,9 +75,6 @@
     <ClCompile Include="fractol_move_camera.c">
       <Filter>Source Files\Event</Filter>
     </ClCompile>
-    <ClCompile Include="fractol_offset_value.c">
-      <Filter>Source Files\Event</Filter>
-    </ClCompile>
     <ClCompile Include="fractol_pitch_value.c">
       <Filter>Source Files\Event</Filter>
     </ClCompile>
@@ -91,9 +88,6 @@
       <Filter>Source Files\Event</Filter>
     </ClCompile>
     <ClCompile Include="fractol_set_mouse_tracking.c">
-      <Filter>Source Files\Event</Filter>
-    </ClCompile>
-    <ClCompile Include="fractol_seek_offset.c">
       <Filter>Source Files\Event</Filter>
     </ClCompile>
     <ClCompile Include="fractol_resize_window.c">

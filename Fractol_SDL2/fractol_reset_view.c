@@ -12,23 +12,23 @@
 
 #include "fract_ol.h"
 
-void	fractol_reset_view(t_env *e)
+void	fractol_reset_view(t_var *v)
 {
-	e->zoom = 1;
-	e->m_width = e->win_width / 2;
-	e->m_height = e->win_height / 2;
-	e->m_width_old = e->win_width / 2;
-	e->m_height_old = e->win_height / 2;
-	e->width_min = -2;
-	e->width_max = 2;
-	e->height_min = -2;
-	e->height_max = 2;
-	e->color = 1;
-	e->iter = 100;
-	e->width_pitch = fractol_pitch_value(e->width_min, e->width_max,
-		e->win_width);
-	e->height_pitch = fractol_pitch_value(e->height_min, e->height_max,
-		e->win_height);
-	e->mouse_tracking = 1;
-	e->render = 1;
+	v->zoom = 1;
+	v->m_width = v->win_width / 2;
+	v->m_height = v->win_height / 2;
+	v->m_width_old = v->win_width / 2;
+	v->m_height_old = v->win_height / 2;
+	v->width_min = -2;
+	v->width_max = 2;
+	v->height_min = -2;
+	v->height_max = 2;
+	v->color = 1;
+	v->iter = 100;
+	v->width_pitch = fractol_pitch_value(v->width_min, v->width_max,
+		v->win_width);
+	v->height_pitch = fractol_pitch_value(v->height_min, v->height_max,
+		v->win_height);
+	v->mouse_tracking = 1;
+	v->render = 1;
 }

@@ -12,9 +12,9 @@
 
 #include "fract_ol.h"
 
-void	fractol_mouse_position(t_env *e)
+void	fractol_mouse_position(t_var *v)
 {
-	SDL_GetMouseState(&(e->m_width), &(e->m_height));
-	if (e->fractal_nb == JULIA || e->fractal_nb == JULIA_BURNING_SHIP)
-		e->render = 1;
+	SDL_GetMouseState(&(v->m_width), &(v->m_height));
+	if (v->fractal_nb == JULIA || v->fractal_nb == JULIA_BURNING_SHIP)
+		v->render = 1;
 }

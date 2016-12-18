@@ -14,26 +14,26 @@
 
 void		fractol_burningship(t_env *e)
 {
-	size_t	i = 0;
-	size_t	j = 0;
+	int	i = 0;
+	int	j = 0;
 	size_t	cur_it = 0;
-	size_t	draw = 0;
+	char	draw = 0;
 	double	cpy_init_val[2];
 	const double z_r_init = 0;
 	const double z_i_init = 0;
 
 	cpy_init_val[0] = z_r_init;
 	cpy_init_val[1] = z_i_init;
-	while (j < e->win_height)
+	while (j < e->var.win_height)
 	{
-		while (i < e->win_width)
+		while (i < e->var.win_width)
 		{
 			while ((draw = fractol_calc_bs(&cpy_init_val[0], &cpy_init_val[1],
-				(e->width_min + (e->width_pitch * i)), -(e->height_max -
-				(e->height_pitch * j))) == 0) && cur_it < e->iter)
+				(e->var.width_min + (e->var.width_pitch * i)), -(e->var.height_max -
+				(e->var.height_pitch * j))) == 0) && cur_it < e->var.iter)
 				cur_it++;
 			if (draw == 0)
-				fractol_color_pixel(&(e->fractal), e->color, e->win_width,
+				fractol_color_pixel(&(e->fractal), e->var.color, e->var.win_width,
 					i, j, cur_it);
 			cpy_init_val[0] = z_r_init;
 			cpy_init_val[1] = z_i_init;

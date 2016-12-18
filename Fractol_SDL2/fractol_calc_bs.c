@@ -12,7 +12,7 @@
 
 #include "fract_ol.h"
 
-int				fractol_calc_bs(double *init_x, double *init_y, double x, double y)
+char			fractol_calc_bs(double *init_x, double *init_y, double x, double y)
 {
 	double	tmp_x;
 	double	tmp_y;

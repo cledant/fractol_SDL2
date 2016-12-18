@@ -18,13 +18,13 @@ t_err	fractol_update_iter_zoom(t_env *e)
 
 	fractol_destroy_texture(&(e->zoom_counter));
 	fractol_destroy_texture(&(e->iter_counter));
-	sprintf(e->s, "%.3e", e->zoom);
+	sprintf(e->var.s, "%.3e", e->var.zoom);
 	if ((err = fractol_create_texture_name(&(e->zoom_counter), e->renderer,
-			e->font_m, 70, 35, e->c_white, e->s)) != NONE)
+			e->font_m, 70, 35, e->c_white, e->var.s)) != NONE)
 		return (err);
-	sprintf(e->s, "%d", e->iter);
+	sprintf(e->var.s, "%zd", e->var.iter);
 	if ((err = fractol_create_texture_name(&(e->iter_counter), e->renderer,
-			e->font_m, 95, 60, e->c_white, e->s)) != NONE)
+			e->font_m, 95, 60, e->c_white, e->var.s)) != NONE)
 		return (err);
 	return (NONE);
 }
