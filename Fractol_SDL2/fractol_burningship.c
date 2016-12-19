@@ -49,7 +49,6 @@ void		fractol_burningship(t_env *e)
 					i, j, cur_it);
 			z_r = 0;
 			z_i = 0;
-			res = 0;
 			cur_it = 0;
 			i++;
 		}

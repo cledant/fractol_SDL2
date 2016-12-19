@@ -30,44 +30,54 @@ static void	julia_set_tracking(t_env *e, double *z_r_init, double *z_i_init)
 	}
 }
 
-static void	julia_set_cpy_val(double *cpy_r, double *cpy_i, double z_r_init,
-				double z_i_init)
-{
-	*cpy_r = z_r_init;
-	*cpy_i = z_i_init;
-}
-
 void		fractol_julia(t_env *e)
 {
 	int	i = 0;
 	int	j = 0;
 	size_t	cur_it = 0;
 	char	draw = 0;
-	double	cpy_val[4];
+	double	z_r_pos = 0;
+	double	z_i_pos = 0;
+	double	z_r = (e->var.width_min + (e->var.width_pitch * i));
+	double	z_i = (e->var.height_max - (e->var.height_pitch * j));
+	double	res = 0;
+	double	tmp_r = 0;
+	double	tmp_i = 0;
+	double	sqrt_tmp_x = 0;
+	double	sqrt_tmp_y = 0;
 
-	julia_set_tracking(e, &cpy_val[2], &cpy_val[3]);
-	julia_set_cpy_val(&cpy_val[0], &cpy_val[1], (e->var.width_min + (e->var.width_pitch * i)),
-			(e->var.height_max - (e->var.height_pitch * j)));
+	julia_set_tracking(e, &z_r_pos, &z_i_pos);
 	while (j < e->var.win_height)
 	{
 		while (i < e->var.win_width)
 		{
-			while ((draw = fractol_calc_mb(&cpy_val[0], &cpy_val[1], cpy_val[2],
-					cpy_val[3]) == 0) && cur_it < e->var.iter)
+			while (cur_it < e->var.iter)
+			{
+				tmp_r = z_r;
+				tmp_i = z_i;
+				sqrt_tmp_x = tmp_r * tmp_r;
+				sqrt_tmp_y = tmp_i * tmp_i;
+				z_r = sqrt_tmp_x - sqrt_tmp_y + z_r_pos;
+				z_i = tmp_r * tmp_i;
+				z_i += z_i;
+				z_i += z_i_pos;
+				if ((res = (z_r * z_r) + (z_i * z_i)) > 4)
+					break;
 				cur_it++;
-			if (draw == 0)
+			}
+			if (res > 4)
 				fractol_color_pixel(&(e->fractal), e->var.color, e->var.win_width,
 					i, j, cur_it);
-			julia_set_cpy_val(&cpy_val[0], &cpy_val[1], (e->var.width_min +
-				(e->var.width_pitch * i)), (e->var.height_max - (e->var.height_pitch * j)));
 			cur_it = 0;
 			draw = 0;
 			i++;
+			z_r = (e->var.width_min + (e->var.width_pitch * i));
+			z_i = (e->var.height_max - (e->var.height_pitch * j));
 		}
 		draw = 0;
 		i = 0;
 		j++;
-		julia_set_cpy_val(&cpy_val[0], &cpy_val[1], (e->var.width_min +
-			(e->var.width_pitch * i)), (e->var.height_max - (e->var.height_pitch * j)));
+		z_r = (e->var.width_min + (e->var.width_pitch * i));
+		z_i = (e->var.height_max - (e->var.height_pitch * j));
 	}
 }

@@ -137,8 +137,6 @@
     <ClCompile Include="fractol_sdl_exit.c" />
     <ClCompile Include="fractol_set_sdl_color.c" />
     <ClCompile Include="fractol_set_rect.c" />
-    <ClCompile Include="fractol_calc_bs.c" />
-    <ClCompile Include="fractol_calc_mb.c" />
     <ClCompile Include="fractol_change_color.c" />
     <ClCompile Include="fractol_change_iter.c" />
     <ClCompile Include="fractol_burningship.c" />

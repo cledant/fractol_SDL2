@@ -139,7 +139,5 @@ void			fractol_mandelbrot(t_env *e);
 void			fractol_julia(t_env *e);
 void			fractol_burningship(t_env *e);
 void			fractol_julia_burningship(t_env *e);
-char			fractol_calc_mb(double *init_x, double *init_y, double x, double y);
-char			fractol_calc_bs(double *init_x, double *init_y, double x, double y);
 
 #endif

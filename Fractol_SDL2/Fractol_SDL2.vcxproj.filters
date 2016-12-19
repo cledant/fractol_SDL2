@@ -33,12 +33,6 @@
     <ClCompile Include="fractol_burningship.c">
       <Filter>Source Files\Draw</Filter>
     </ClCompile>
-    <ClCompile Include="fractol_calc_bs.c">
-      <Filter>Source Files\Draw</Filter>
-    </ClCompile>
-    <ClCompile Include="fractol_calc_mb.c">
-      <Filter>Source Files\Draw</Filter>
-    </ClCompile>
     <ClCompile Include="fractol_create_texture_name.c">
       <Filter>Source Files\Tools</Filter>
     </ClCompile>
